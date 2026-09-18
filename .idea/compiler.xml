@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="product-service" />
-        <module name="review-service" />
+        <module name="api" />
+        <module name="util" />
         <module name="product-composite-service" />
+        <module name="review-service" />
         <module name="recommendation-service" />
       </profile>
     </annotationProcessing>
