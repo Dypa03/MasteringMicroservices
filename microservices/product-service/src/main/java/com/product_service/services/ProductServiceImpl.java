@@ -1,8 +1,10 @@
 package com.product_service.services;
 
+import com.api2.core.product.Product;
+import com.api2.core.product.ProductService;
+
 import com.util.ServiceUtil;
-import com.api.core.product.Product;
-import com.api.core.product.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

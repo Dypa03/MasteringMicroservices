@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>api</module>
+        <module>api2</module>
         <module>util</module>
 
         <module>microservices/product-service</module>

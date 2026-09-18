@@ -1,4 +1,4 @@
-package com.api.core.product;
+package com.api2.core.product;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
