@@ -1,0 +1,12 @@
+package com.api2.composite.product;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class ReviewSummary {
+    private int reviewId;
+    private String author;
+    private String subject;
+}
