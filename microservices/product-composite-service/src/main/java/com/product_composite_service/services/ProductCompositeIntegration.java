@@ -1,9 +1,20 @@
 package com.product_composite_service.services;
 
+import com.api2.core.product.Product;
+import com.api2.core.product.ProductService;
+import com.api2.core.recommendation.Recommendation;
+import com.api2.core.recommendation.RecommendationService;
+import com.api2.core.review.Review;
+import com.api2.core.review.ReviewService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import tools.jackson.databind.ObjectMapper;
+
+import java.util.List;
+
+import static org.springframework.http.HttpMethod.GET;
 
 @Component
 public class ProductCompositeIntegration implements ProductService, RecommendationService, ReviewService {
@@ -24,7 +35,7 @@ public class ProductCompositeIntegration implements ProductService, Recommendati
             int productServicePort,
             @Value("${app.recommendation-service.host}")
             String recommendationServiceHost,
-            @Value("${app.reccomendation.service.port}")
+            @Value("${app.recommendation.service.port}")
             int recommendationServicePort,
             @Value("${app.review-service.host}")
             String reviewServiceHost,
@@ -42,8 +53,20 @@ public class ProductCompositeIntegration implements ProductService, Recommendati
 
     public Product getProduct(int productId) {
         String url = productServiceUrl+productId;
-        Product product = restTemplate.getForObject(url, Product.class);
-        return product;
+        return restTemplate.getForObject(url, Product.class);
     }
 
+
+    @Override
+    public List<Recommendation> getRecommendations(int productId) {
+        String url = recommendationServiceUrl+productId;
+        return restTemplate.exchange(url, GET, null, new ParameterizedTypeReference<List<Recommendation>>() {}).getBody();
+    }
+
+    @Override
+    public List<Review> getReviews(int productId) {
+        String url = reviewServiceUrl+productId;
+        return restTemplate.exchange(url, GET, null, new ParameterizedTypeReference<List<Review>>() {}).getBody();
+
+    }
 }

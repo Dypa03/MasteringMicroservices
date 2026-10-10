@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ServiceAddress {
+public class ServiceAddresses {
     private String cmp;
     private String pro;
     private String rev;

@@ -3,7 +3,7 @@ package com.api2.composite.product;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-public interface ProductServiceComposite {
+public interface ProductCompositeService {
 
     @GetMapping(
             value = "/product-composite/{productId}",
